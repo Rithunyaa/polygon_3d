@@ -24,6 +24,12 @@ const donut_mat = new THREE.MeshBasicMaterial({ map: donut_tex });
 const donut = new THREE.Mesh(donut_geo, donut_mat);
 scene.add(donut);
 
+// second torus
+const donut2_geo = new THREE.TorusGeometry(10, 1, 16, 100);
+const donut2_mat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+const donut2 = new THREE.Mesh(donut2_geo, donut2_mat);
+scene.add(donut2);
+
 camera.position.setZ(45);
 
 // stars
@@ -64,6 +70,8 @@ function animate() {
   cube.rotation.y += 0.01;
   donut.rotation.x += 0.01;
   donut.rotation.y += 0.01;
+  donut2.rotation.x += 0.005;
+  donut2.rotation.y += 0.005;
   renderer.render( scene, camera );
 }
 
