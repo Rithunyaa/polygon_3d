@@ -23,7 +23,7 @@ main {
   header {
     background: rgba(15, 15, 15, 0.95);
     grid-column: 2 / span 5;
-    font-size: 40px;
+    font-size: 35px;
     padding: 32px;
     margin-bottom: 350px;
   }
