@@ -5,13 +5,13 @@ canvas {
 }
 
 * {
-  font-family: brandon-grotesque, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 main {
-  color: white;
+  color: rgb(236, 230, 230);
   position: absolute;
   width: 100%;
   margin: 0px auto;
