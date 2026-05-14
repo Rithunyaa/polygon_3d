@@ -9,10 +9,6 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setAnimationLoop( animate );
-
-renderer.render(scene, camera);
-
 
 // cube
 const geometry = new THREE.BoxGeometry( 3, 3, 3 );
@@ -28,22 +24,12 @@ const donut_mat = new THREE.MeshBasicMaterial({ map: donut_tex });
 const donut = new THREE.Mesh(donut_geo, donut_mat);
 scene.add(donut);
 
-camera.position.z = 18;
+camera.position.setZ(45);
 
-function animate() {
-  requestAnimationFrame( animate );
-  cube.rotation.x += 0.03;
-  cube.rotation.y += 0.03;
-  donut.rotation.x += 0.05;
-  donut.rotation.y += 0.05;
-  renderer.render( scene, camera );
-}
-
-animate();
-
+// stars
 function add_star() {
   const star_geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const star_material = new THREE.MeshBasicMaterial({ color: 0xffffff  });
+  const star_material = new THREE.MeshBasicMaterial({ color: 0xffffff });
   const star = new THREE.Mesh(star_geometry, star_material);
 
   const [x, y, z] = Array(3)
@@ -56,3 +42,29 @@ function add_star() {
 
 Array(200).fill().forEach(add_star);
 
+// scroll
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+
+  cube.rotation.y += 0.01;
+  cube.rotation.z += 0.01;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0000;
+  camera.rotation.y = t * -0.0000;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
+// animate
+function animate() {
+  requestAnimationFrame( animate );
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+  donut.rotation.x += 0.01;
+  donut.rotation.y += 0.01;
+  renderer.render( scene, camera );
+}
+
+animate();
