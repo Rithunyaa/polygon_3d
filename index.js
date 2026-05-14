@@ -1,4 +1,4 @@
-import * as THREE from 'three'; //making sure we can actually use it
+import * as THREE from 'three';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -15,7 +15,7 @@ scene.add( cube );
 camera.position.z = 5;
 
 function animate() {
-    requestAnimationFrame( animate ); // add this line
+
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
 
