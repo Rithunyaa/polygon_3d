@@ -12,14 +12,14 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 
 // cube
 const geometry = new THREE.BoxGeometry( 3, 3, 3 );
-const texture = new THREE.TextureLoader().load( 'assets/earth.png' );
+const texture = new THREE.TextureLoader().load( './assets/earth.png' );
 const material = new THREE.MeshBasicMaterial({ map: texture });
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
 // donut
 const donut_geo = new THREE.TorusGeometry(6, 2, 16, 100);
-const donut_tex = new THREE.TextureLoader().load( 'assets/galazy_polygon.png' );
+const donut_tex = new THREE.TextureLoader().load( './assets/galazy_polygon.png' );
 const donut_mat = new THREE.MeshBasicMaterial({ map: donut_tex });
 const donut = new THREE.Mesh(donut_geo, donut_mat);
 scene.add(donut);
